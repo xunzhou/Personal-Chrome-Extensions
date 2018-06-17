@@ -1,5 +1,5 @@
-var editor = "code ";
-var path = "/home/user/practice/LeetCode/"
+var editor = "code";
+var path = "/home/user/practice/LeetCode/";
 var file = null;
 var ext = ".java";
 var res = null;
@@ -16,7 +16,7 @@ function copyToClipboard(text){
 function getProb(document) {
     var prob = document.getElementsByTagName("h3")[0].innerHTML.split(".");
     file = "LC"+prob[0]+"_"+prob[1].trim().replace(/ /g, "_");
-    res = editor+path+file+ext;
+    res = editor+" "+path+file+ext;
     copyToClipboard(res);
     return res;
 }
