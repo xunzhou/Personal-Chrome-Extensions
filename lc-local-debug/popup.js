@@ -5,7 +5,7 @@ function copyToClipboard(text){
   dummy.select();
   document.execCommand("copy");
   document.body.removeChild(dummy);
-  alert(text + "\t(copied!)");
+  // alert(text + "\t(copied!)");
 }
 
 var e,p,l,f;
@@ -17,9 +17,15 @@ chrome.runtime.onMessage.addListener(
       e = editor.innerText = request.payload.editor;
       p = path.innerText = request.payload.path;
       l = ext.innerText = request.payload.lang;
-      result = document.querySelector('#result').innerText = e+" "+p+"/"+f+"."+l;
+      result = document.querySelector('#result').innerText = p+"/"+f+"."+l;
       copyToClipboard(result);
       console.log("pref get: " + request.payload);
+      navigator.registerProtocolHandler("web+lcdbg","https://leetcode.com/problems/%s","lcdbg handler");
+      // document.getElementById("link").href = "lcdbg://"+result;
+      window.open("lcdbg://"+result);
+      window.location.assign("lcdbg:");
+      // TODO: window cant be closed.
+      // setTimeout(function() { win.close();}, 3000); 
     }
   
     else if (request.action == "getSource") {

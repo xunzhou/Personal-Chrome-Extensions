@@ -4,7 +4,6 @@ function apply_options() {
     st.path = document.getElementById('path').value;
     st.lang = document.getElementById('lang').value;
 
-    console.log(JSON.stringify(st));
     chrome.storage.sync.set(st, function() {
       // Update status to let user know options were saved.
       var status = document.getElementById('status');
