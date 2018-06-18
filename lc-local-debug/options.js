@@ -1,19 +1,14 @@
 function apply_options() {
-    var edtr, ppath, lang;
-    window.onload = function(){
-        edtr = document.getElementById("editor").value;
-        ppath = document.getElementById('path').value;
-        lang = document.getElementById('plang').value;
-    }
-    chrome.storage.sync.set({
-      editor: edtr,
-      path: ppath,
-      prolang: lang
-    }, function() {
-      console.log("{"+edtr+", "+ppath+", "+lang+"}");
+    var st = new Object();
+    st.editor = document.getElementById("editor").value;
+    st.path = document.getElementById('path').value;
+    st.lang = document.getElementById('lang').value;
+
+    console.log(JSON.stringify(st));
+    chrome.storage.sync.set(st, function() {
       // Update status to let user know options were saved.
       var status = document.getElementById('status');
-      status.textContent = 'Options applied. {'+edtr+", "+ppath+", "+lang+"}";
+      status.textContent = 'Options applied.';
       setTimeout(function() {
         status.textContent = '';
       }, 1000);
@@ -23,17 +18,13 @@ function apply_options() {
 function restore_options(){
     // Use default value
     chrome.storage.sync.get(
-        ["editor","path","prolang"]
+        {'editor':'subl','path':'/user/home/Desktop/','lang':'.cpp'}
     , function(items) {
-        window.onload = function(){
         document.getElementById('editor').value = items.editor;
         document.getElementById('path').value = items.path;
-        document.getElementById('plang').value = items.prolang;
-        };
+        document.getElementById('lang').value = items.lang;
     });
 }
 
-window.onload = function(){
-    document.addEventListener('DOMContentLoaded', restore_options);
-    document.getElementById('apply').addEventListener('click',apply_options);
-}
+document.addEventListener('DOMContentLoaded', restore_options);
+document.getElementById('apply').addEventListener('click',apply_options);

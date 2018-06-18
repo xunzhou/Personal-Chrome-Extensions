@@ -6,11 +6,9 @@
   "browser_action": {
     "default_popup": "popup.html"
   },
-  "options_ui":{
-    "page":"options.html"
-  },
-  "background": {
-    "scripts": ["options.js"]
+  "options_ui": {
+    "chrome_style": true,
+    "page": "options.html"
   },
   "permissions": ["tabs", "<all_urls>", "clipboardWrite", "storage"] 
 }
