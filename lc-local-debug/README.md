@@ -10,6 +10,3 @@ Chrome Extension for personal use.
 1. mod url sent through lcdbg protocal, attach editor choice to it. change trimming shell to launch with editor of choice.
 2. css for options, and cleanup popup.html
 3. check if native messaging is more elegent than custom protocal solution?
-
-## protocal-handler for Linux
-    append "x-scheme-handler/lcdbg=lcdbg.desktop" to /usr/share/applications/defaults.list
