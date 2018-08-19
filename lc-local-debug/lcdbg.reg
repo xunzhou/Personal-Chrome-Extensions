@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\lcdbg]
+"URL Protocol"=""
+@="URL:LeetCode Local Debug Protocol"
+"DefaultIcon"="\"C:\\Program Files\\Microsoft VS Code\\Code.exe",1"
+
+[HKEY_CLASSES_ROOT\lcdbg\shell]
+
+[HKEY_CLASSES_ROOT\lcdbg\shell\open]
+
+[HKEY_CLASSES_ROOT\lcdbg\shell\open\command]
+@="\"C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe\" \"C:\\projects\\lcdbg.ps1 %1\""

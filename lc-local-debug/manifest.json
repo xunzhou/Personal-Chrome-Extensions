@@ -1,0 +1,14 @@
+{
+  "name": "LeetCode Local Debug",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Generate Local file for LeetCode debugging.",
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "chrome_style": true,
+    "page": "options.html"
+  },
+  "permissions": ["tabs", "<all_urls>", "clipboardWrite", "storage"] 
+}
