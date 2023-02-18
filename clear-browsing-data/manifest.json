@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Clear Browsing Data",
+    "short_name": "clear browsing data",
+    "version": "1.0",
+    "minimum_chrome_version": "96",
+    "description": "Clear Chrome Browsing data on window closing.",
+    "offline_enabled": true,
+    "permissions": [
+        "browsingData"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}
